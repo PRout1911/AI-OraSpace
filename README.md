@@ -1,15 +1,15 @@
 # AI-OraSpace
 <!-- Header / Banner -->
-<h1 align="center">🧠 AI-OraSpace 🧠</h1>
+<h1 align="center">🤖 AI-OraSpace 👾</h1>
 <p align="center">
-  <em>IAI-OraSpace: AI-powered Oracle DBA Space</em>
+  <em>AI-OraSpace: AI-powered Oracle DBA Space</em>
 </p>
 
 ---
 
 ## 🚀 Project Overview
 
-**AI-OraSpace** is an Oracle DBA-focused analytics and automation project built with **Python**, **Streamlit**, and **Prophet**.  
+**AI-OraSpace** is an mini Oracle DBA-focused analytics and automation project built with **Python**, **Streamlit**, and **Prophet**.  
 It integrates Oracle database monitoring, growth forecasting, and predictive insights into an interactive dashboard.  
 
 This project aims to bring **data-driven decision-making** and **automation** into DBA workflows.
@@ -38,7 +38,7 @@ This project aims to bring **data-driven decision-making** and **automation** in
 
 ---
 
-### 🗃️ Database & Backend (Mainly Focused)
+### 🗃️ Database (Mainly Focused)
 ![Oracle Database](https://img.shields.io/badge/Oracle_DB-F80000?style=for-the-badge&logo=oracle&logoColor=white)
 
 ---
