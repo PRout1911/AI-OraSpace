@@ -2,7 +2,7 @@
 <!-- Header / Banner -->
 <h1 align="center">🧠 AI-OraSpace 🧠</h1>
 <p align="center">
-  <em>Intelligent Oracle DBA Space — Automation, Forecasting & Real-Time Database Insights</em>
+  <em>IAI-OraSpace: AI-powered Oracle DBA Space</em>
 </p>
 
 ---
