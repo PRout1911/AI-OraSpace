@@ -1,6 +1,41 @@
-# Ignore virtual environment
+# ----------------------
+# Virtual Environment
+# ----------------------
 venv/
 
-# Ignore Python cache
+# ----------------------
+# Python cache files
+# ----------------------
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# ----------------------
+# Jupyter / Notebook files
+# ----------------------
+.ipynb_checkpoints/
+
+# ----------------------
+# IDE / Editor configs
+# ----------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ----------------------
+# OS files
+# ----------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------
+# Logs
+# ----------------------
+*.log
+
+# ----------------------
+# Optional: environment files (if sensitive)
+# ----------------------
+.env
