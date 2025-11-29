@@ -9,12 +9,13 @@
 
 ## 🚀 Project Overview
 
-**AI-OraSpace** is an mini Oracle DBA-focused analytics and automation project built with **Python**, **Streamlit**, and **Prophet**.  
+**AI-OraSpace** is an mini Oracle DBA-focused analytics and automation project built with **Python**, **Streamlit**, and **Prophet**.
+  
 It integrates Oracle database tablespace usage monitoring, growth forecasting, and predictive insights into an interactive dashboard.
 
 A new innovation will be **DBA Query Automation**, where you can fire complex Oracle queries using simple human-friendly commands (example: ADD_DF USERS), and the mapped SQL query executes automatically.
 
-This project aims to bring **data-driven decision-making** and **automation** into DBA workflows.
+This project aims to bring **automation** into DBA workflows.
 
 ---
 
