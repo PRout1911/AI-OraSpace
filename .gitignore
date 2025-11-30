@@ -2,9 +2,12 @@
 # Virtual Environment
 # ----------------------
 venv/
+.venv/
+env/
+ENV/
 
 # ----------------------
-# Python cache files
+# Python Cache Files
 # ----------------------
 __pycache__/
 *.pyc
@@ -12,12 +15,19 @@ __pycache__/
 *.pyd
 
 # ----------------------
+# Build / Distribution
+# ----------------------
+dist/
+build/
+*.egg-info/
+
+# ----------------------
 # Jupyter / Notebook files
 # ----------------------
 .ipynb_checkpoints/
 
 # ----------------------
-# IDE / Editor configs
+# IDE / Editor Configs
 # ----------------------
 .vscode/
 .idea/
@@ -25,7 +35,12 @@ __pycache__/
 *.sublime-workspace
 
 # ----------------------
-# OS files
+# Streamlit
+# ----------------------
+.streamlit/secrets.toml
+
+# ----------------------
+# OS Files
 # ----------------------
 .DS_Store
 Thumbs.db
@@ -36,6 +51,30 @@ Thumbs.db
 *.log
 
 # ----------------------
-# Optional: environment files (if sensitive)
+# Cache Folders
+# ----------------------
+.cache/
+*.cache/
+prophet_stan_cache/
+
+# ----------------------
+# Temporary Files
+# ----------------------
+*.tmp
+*.temp
+
+# ----------------------
+# Oracle Instant Client
+# ----------------------
+instantclient_*/
+
+# ----------------------
+# CSV / Data Files (optional)
+# ----------------------
+data/*.csv
+*.csv
+
+# ----------------------
+# Environment Files
 # ----------------------
 .env
