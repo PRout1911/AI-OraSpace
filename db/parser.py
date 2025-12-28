@@ -24,6 +24,6 @@ def comm_parse(comm: str):
     if comm.startswith("resize"):
         return {
             "type": "DDL_PREVIEW",
-            "sql": comm 
+            "sql": comm # same logic as add df, as altering anything should be confirmed once
         }
         
