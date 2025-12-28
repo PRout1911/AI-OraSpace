@@ -14,4 +14,10 @@ def comm_parse(comm: str):
             "action": "DATAFILES",
             "tablespace": ts
         }
+
+    if comm.startswith("add df"):
+        return {
+            "type": "DDL_PREVIEW",
+            "sql": comm
+        }
         
