@@ -18,6 +18,6 @@ def comm_parse(comm: str):
     if comm.startswith("add df"):
         return {
             "type": "DDL_PREVIEW",
-            "sql": comm
+            "sql": comm #since DDL command is dangerous, it will not auto run but ask for confirmation
         }
         
