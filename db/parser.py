@@ -20,4 +20,10 @@ def comm_parse(comm: str):
             "type": "DDL_PREVIEW",
             "sql": comm #since DDL command is dangerous, it will not auto run but ask for confirmation
         }
+
+    if comm.startswith("resize"):
+        return {
+            "type": "DDL_PREVIEW",
+            "sql": comm 
+        }
         
