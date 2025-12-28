@@ -6,3 +6,12 @@ def comm_parse(comm: str):
             "type": "QUERY",
             "action": "TABLESPACE"
     }
+
+    if comm.startswith("check df files"):
+        ts = comm.split()[-1].upper() #check df files users : it will split all according to spaces then will choose last word & uppercase it
+        return {
+            "type": "QUERY",
+            "action": "DATAFILES",
+            "tablespace": ts
+        }
+        
