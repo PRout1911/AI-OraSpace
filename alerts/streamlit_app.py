@@ -25,3 +25,12 @@ if st.button("Run"):
             with get_connection() as conn:
                 if parsed["action"] == "TABLESPACE":
                     df = pd.read_sql(TABLESPACE_USAGE_SQL, conn)
+
+                    st.subheader("Tablespace Usage 📊")
+                    st.dataframe(df)
+
+                    warn, crit = tablespace_alerts(df)
+
+                    if not crit.empty:
+                        st.error("Critical tablespaces detected 🚨")
+                        st.dataframe(crit)
