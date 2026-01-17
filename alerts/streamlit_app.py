@@ -39,4 +39,8 @@ if st.button("Run"):
                         st.error("Tablespaces crossing threshold ⚠️")
                         st.dataframe(warn)
 
-                    
+                if parsed["action"] == "DATAFILES":
+                    df = pd.read_sql(DATAFILE_SQL, conn, params={"tbls": parsed["tablespace"]}
+                    )
+                    st.subheader(f"Datafiles for {parsed['tablespace 📁']}")
+                    st.dataframe(df) 
