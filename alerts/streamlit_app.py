@@ -34,3 +34,9 @@ if st.button("Run"):
                     if not crit.empty:
                         st.error("Critical tablespaces detected 🚨")
                         st.dataframe(crit)
+
+                    if not warn.empty:
+                        st.error("Tablespaces crossing threshold ⚠️")
+                        st.dataframe(warn)
+
+                    
