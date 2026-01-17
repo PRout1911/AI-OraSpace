@@ -9,4 +9,19 @@ from db.utils_alerts import tablespace_alerts
 st.set_page_config(page_title="AI-Oraspace", layout="wide")
 st.title("AI-OraSpace – Oracle DBA Command Console")
 
-command = st.text_input("Enter Command", placeholder = "check ts | check files USERS | add df")
+command = st.text_input(
+    "Enter Command", 
+    placeholder = "check ts | check files USERS | add df"
+)
+
+if st.button("Run"):
+    parsed = comm_parse(comm)
+
+    if not parsed:
+        st.error("Unknown command ❌")
+
+    else:
+        if parsed["type"] == "QUERY":
+            with get_connection() as conn:
+                if parsed["action"] == "TABLESPACE":
+                    df = pd.read_sql(TABLESPACE_USAGE_SQL, conn)
