@@ -5,9 +5,7 @@ from db.keywords import (
     RESIZE_KEYWORDS
 )
 
-# -----------------------------
 # Detect Keywords
-# -----------------------------
 def detect_keywords(command):
 
     command = command.upper()
@@ -16,7 +14,21 @@ def detect_keywords(command):
     if any(word in command for word in ADD_KEYWORDS):
         return "ADD_DATAFILE"
 
-    
+    # Resize Datafile
+    if any(word in command for word in RESIZE_KEYWORDS):
+        return "RESIZE_DATAFILE"
+
+    # Tablespace Query
+    if any(word in command for word in TABLESPACE_KEYWORDS):
+        return "CHECK_TABLESPACE"
+
+    # Datafile Query
+    if any (word in command for word in DATAFILE_KEYWORDS):
+        return "CHECK_DATAFILE"
+
+    return None
+
+
 
 
 
