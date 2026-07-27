@@ -1,10 +1,10 @@
 import streamlit as st
 import pandas as pd
 
-from db.oracle_conn import get_connection
-from db.sql_queries import TABLESPACE_USAGE_SQL, DATAFILE_SQL
-from db.command_parser import parse_command
-from utils.alerts import tablespace_alerts
+from db.conn import get_connection
+from db.queries import TABLESPACE_USAGE_SQL, DATAFILE_SQL
+from db.parser import comm_parse
+from alerts.alert import tablespace_alerts
 
 st.set_page_config(page_title="AI-Oraspace", layout="wide")
 st.title("AI-OraSpace - Oracle DBA Command Console")
@@ -15,7 +15,7 @@ command = st.text_input(
 )
 
 if st.button("Run"):
-    parsed = comm_parse(comm)
+    parsed = comm_parse(command)
 
     if not parsed:
         st.error("Unknown command ❌")
@@ -42,7 +42,7 @@ if st.button("Run"):
                 if parsed["action"] == "DATAFILES":
                     df = pd.read_sql(DATAFILE_SQL, conn, params={"tbls": parsed["tablespace"]}
                     )
-                    st.subheader(f"Datafiles for {parsed['tablespace 📁']}")
+                    st.subheader(f"📁 Datafiles for {parsed['tablespace']}")
                     st.dataframe(df)
 
         if parsed["type"] == "DDL_PREVIEW":
