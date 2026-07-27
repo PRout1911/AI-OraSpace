@@ -1,3 +1,8 @@
+GET_TABLESPACES_SQL = """
+SELECT tablespace_name
+FROM dba_tablespaces
+"""
+
 TABLESPACE_USAGE_SQL = """
 SELECT d.STATUS "Status",
        d.tablespace_name "Name",

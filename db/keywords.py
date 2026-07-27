@@ -1,0 +1,33 @@
+TABLESPACE_KEYWORDS = [
+    "TABLESPACE",
+    "TABLESPACES",
+    "SPACE",
+    "STORAGE",
+    "USAGE",
+    "UTILIZATION",
+    "THRESHOLD",
+    "FULL",
+    "CAPACITY"
+]
+
+DATAFILE_KEYWORDS = [
+    "DATAFILE",
+    "DATAFILES",
+    "FILE",
+    "FILES"
+]
+
+ADD_KEYWORDS = [
+    "ADD",
+    "CREATE",
+    "EXTEND",
+    "INCREASE",
+    "EXPAND",
+    "GROW"
+]
+
+RESIZE_KEYWORDS = [
+    "RESIZE",
+    "SHRINK",
+    "ENLARGE"
+]
