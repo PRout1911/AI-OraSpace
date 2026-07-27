@@ -28,7 +28,34 @@ def detect_keywords(command):
 
     return None
 
+# Detect Tablespace
+def detect_tablespace(command, tablespaces):
 
+    command = command.upper()
+
+    for ts in tablespaces:
+
+        if ts.upper() in command:
+            return ts
+
+    return None
+
+# Main parser query
+def parse_command(command, tablespaces):
+
+    keyword = detect_keywords(command)
+
+    tablespace = detect_tablespace(command, tablespaces)
+
+    if keyword is None:
+        return None
+
+    return{
+        "type": "QUERY" if "CHECK" in keyword else "DDL_PREVIEW",
+        "keyword": keyword,
+        "tablespace": tablespace,
+        "original_command": command
+    }
 
 
 
