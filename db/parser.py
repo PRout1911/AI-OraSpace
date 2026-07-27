@@ -1,3 +1,61 @@
+from db.keywords import (
+    TABLESPACE_KEYWORDS,
+    DATAFILE_KEYWORDS,
+    ADD_KEYWORDS,
+    RESIZE_KEYWORDS
+)
+
+# -----------------------------
+# Detect Keywords
+# -----------------------------
+def detect_keywords(command):
+
+    command = command.upper()
+
+    # Add Datafile
+    if any(word in command for word in ADD_KEYWORDS):
+        return "ADD_DATAFILE"
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def comm_parse(comm: str):
     comm = comm.lower().strip()
 
