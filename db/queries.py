@@ -1,6 +1,7 @@
 GET_TABLESPACES_SQL = """
 SELECT tablespace_name
 FROM dba_tablespaces
+ORDER BY tablespace_name
 """
 
 TABLESPACE_USAGE_SQL = """
@@ -37,7 +38,7 @@ SELECT file_id,
        autoextensible,
        (SUM(maxbytes)/(1024*1024)) - (SUM(bytes)/(1024*1024)) "Free Space"
 FROM dba_data_files
-WHERE tablespace_name LIKE :tbls
+WHERE UPPER(tablespace_name)=UPPER(:tablespace)
 GROUP BY file_id, file_name, tablespace_name, autoextensible
 ORDER BY 1,2,3
 """
