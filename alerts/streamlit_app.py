@@ -3,7 +3,7 @@ import pandas as pd
 
 from db.conn import get_connection
 from db.queries import TABLESPACE_USAGE_SQL, DATAFILE_SQL
-from db.parser import comm_parse
+from parser import comm_parse
 from alerts.alert import tablespace_alerts
 
 st.set_page_config(page_title="AI-Oraspace", layout="wide")
