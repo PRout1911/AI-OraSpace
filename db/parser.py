@@ -5,6 +5,9 @@ from db.keywords import (
     RESIZE_KEYWORDS
 )
 
+from db.tablespace_loader import load_tablespaces
+tablespaces = load_tablespaces()
+
 # Detect Keywords
 def detect_keywords(command):
 
@@ -24,12 +27,13 @@ def detect_keywords(command):
 
     # Datafile Query
     if any (word in command for word in DATAFILE_KEYWORDS):
-        return "CHECK_DATAFILE"
+        return "CHECK_DATAFILES"
 
     return None
 
+
 # Detect Tablespace
-def detect_tablespace(command, tablespaces):
+def detect_tablespace(command):
 
     command = command.upper()
 
@@ -41,87 +45,16 @@ def detect_tablespace(command, tablespaces):
     return None
 
 # Main parser query
-def parse_command(command, tablespaces):
+def parse_command(command):
 
-    keyword = detect_keywords(command)
+    intent = detect_keywords(command)
 
-    tablespace = detect_tablespace(command, tablespaces)
-
-    if keyword is None:
+    if intent is None:
         return None
 
     return{
-        "type": "QUERY" if "CHECK" in keyword else "DDL_PREVIEW",
-        "keyword": keyword,
-        "tablespace": tablespace,
+        "type": "QUERY" if intent.startswith("CHECK") else "DDL_PREVIEW",
+        "intent": intent,
+        "tablespace": detect_tablespace(command),
         "original_command": command
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def comm_parse(comm: str):
-    comm = comm.lower().strip()
-
-    if comm == "check ts":
-        return {
-            "type": "QUERY",
-            "action": "TABLESPACE"
-    }
-
-    if comm.startswith("check df files"):
-        ts = comm.split()[-1].upper() #check df files users : it will split all according to spaces then will choose last word & uppercase it
-        return {
-            "type": "QUERY",
-            "action": "DATAFILES",
-            "tablespace": ts
-        }
-
-    if comm.startswith("add df"):
-        return {
-            "type": "DDL_PREVIEW",
-            "sql": comm #since DDL command is dangerous, it will not auto run but ask for confirmation
-        }
-
-    if comm.startswith("resize"):
-        return {
-            "type": "DDL_PREVIEW",
-            "sql": comm # same logic as add df, as altering anything should be confirmed once
-        }
-        
-    return None #if user provides commands like hello, increae db, delete db tc...it would return nothing
