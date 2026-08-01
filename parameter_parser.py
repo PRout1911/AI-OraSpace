@@ -5,7 +5,7 @@ def extract_size(command):
 
     command = command.upper()
 
-    match = re.search(r'(\d+)\s*(G|M|K)', command) #r - raw string, \d - digit, (\d+) -group 1, \s* -means zero or more spaces (20G, 20 G, 20  G)
+    match = re.search(r'(\d+(?:\.\d+)?)\s*(T|G|M|K)', command) #r - raw string, \d - digit, (\d+) -group 1, \s* -means zero or more spaces (20G, 20 G, 20  G)
 
     if match:
         return match.group(1) + match.group(2)
@@ -14,11 +14,12 @@ def extract_size(command):
 
 # Extract datafile path
 def extract_datafiles(commnd):
-    commnd = commnd.uppe()
 
+    commnd = commnd.replace('"','').replace("'", "")
 
+    match = re.search(r'(/[\w/.-]+\.DBF)', commnd.upper())
 
+    if match:
+        return match.group(1)
 
-
-    # Extract datafile path 
-#    def extract_datafile(command): command = command.replace('"', '').replace("'", "") match = re.search( r'(/[\w/.-]+\.DBF)', command.upper() ) if match: return match.group(1) return None
+    return None
